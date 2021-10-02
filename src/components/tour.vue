@@ -23,7 +23,7 @@ export default {
     avatarLink: String,
     imageLink: String,
     content: String,
-    price: number,
+    price: Number,
   },
   setup(props) {
     function showD() {

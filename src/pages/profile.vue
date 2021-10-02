@@ -1,19 +1,42 @@
 <template>
   <q-page>
     <div class="header"></div>
-    <q-card class="my-profile">
+    <q-card class="profile-card my-profile q-mb-lg">
       <q-card-section horizontal>
-        <q-avatar class="q-mx-lg q-mt-md" rounded size="48px">
-          <img src="https://cdn.quasar.dev/img/avatar.png" />
+        <q-avatar class="q-mx-lg q-mt-md" size="70px">
+          <img src="https://cdn.quasar.dev/img/avatar.png" square />
           <q-badge floating color="teal">new</q-badge>
         </q-avatar>
         <div class="text q-mt-sm">
-          <div class="text-h6">Our Changing Planet</div>
-          <div class="text-subtitle2">by John Doe</div>
+          <div class="text-h6">Tiffany 12345</div>
+          <div class="text-subtitle2">Houston, Texas</div>
+          <div class="text-subtitle3 text-blue row">
+            <q-icon name="o_near_me" /> 55k millas
+          </div>
+          <q-btn
+            class="covidButton text-subtitle3 q-my-md"
+            color="negative"
+            unelevated
+            rounded
+            no-caps
+            label="Reportar caso de covid"
+          />
         </div>
       </q-card-section>
+    </q-card>
+
+    <q-card class="profile-card q-my-lg">
       <q-card-section>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit
+        <div class="text-h6 text-blue">Historia de Viajero</div>
+      </q-card-section>
+      <img src="https://cdn.quasar.dev/img/mountains.jpg" />
+    </q-card>
+    <q-card class="profile-card q-my-lg">
+      <q-card-section>
+        <div class="text-h6 text-blue">Publicaciones</div>
+      </q-card-section>
+      <q-card-section>
+        <q-img src="" :ratio="1" spinner-color="primary" spinner-size="82px" />
       </q-card-section>
     </q-card>
   </q-page>
@@ -32,9 +55,24 @@ export default {
   z-index: -1;
 }
 
+.profile-card {
+  margin-right: auto;
+  margin-left: auto;
+  width: 80vw;
+  max-width: 400px;
+}
+
 .my-profile {
-  margin: 0 auto;
   margin-top: -50px;
-  max-width: 80vw;
+}
+
+.covidButton {
+  width: 100%;
+  font-size: 12pt;
+}
+
+.q-avatar__content,
+.q-avatar img:not(.q-icon):not(.q-img__image) {
+  border-radius: 50%;
 }
 </style>

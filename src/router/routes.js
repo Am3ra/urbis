@@ -11,6 +11,7 @@ const routes = [
       { path: "/discover", component: () => import("pages/discover.vue") },
       { path: "/forum", component: () => import("pages/forum.vue") },
       { path: "/profile", component: () => import("pages/profile.vue") },
+      { path: "/info", component: () => import("pages/info.vue") },
     ],
   },
 

@@ -27,13 +27,103 @@
   </q-header>
   <q-page padding>
     <p class="text-h4 q-mb-lg q-mt-lg">Sitios Sugeridos</p>
-    <p class="text-h4 q-mb-lg">Tours</p>
+    <q-scroll-area class="" style="width: 100vw; height: 300px">
+      <div class="row q-gutter-lg no-wrap">
+        <sitio v-for="(sitio, idx) in sitiosList" :key="idx" v-bind="sitio" />
+      </div>
+    </q-scroll-area>
+    <p class="text-h4 q-my-lg">Tours</p>
+    <q-scroll-area class="" style="width: 100vw; height: 300px">
+      <div class="row q-gutter-lg no-wrap">
+        <tour v-for="(tour, idx) in tourList" :key="idx" v-bind="tour" />
+      </div>
+    </q-scroll-area>
     <p class="text-h4 q-mb-lg">Quest</p>
   </q-page>
 </template>
 
 <script>
+import { ref } from "vue";
+import Sitio from "../components/sitio.vue";
+import Tour from "src/components/tour.vue";
+
+const sitiosList = [
+  {
+    imageLink:
+      "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.5dMW9vfrByc9nYKu7fxRCwHaFj%26pid%3DApi&f=1",
+    title: "Museo de la Revolución",
+    content:
+      "Antiguo Palacio Presidencial, fue construido entre 1909 y 1920 para ser la sede del gobierno provincial de La Habana, pero el presidente Mario García Menocal lo escogió para ser la sede del Ejecutivo. En 1974 se convirtió en el Museo de la Revolución y en 2010 fue declarado Monumento Nacional.",
+  },
+  {
+    imageLink:
+      "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.5dMW9vfrByc9nYKu7fxRCwHaFj%26pid%3DApi&f=1",
+    title: "Museo de la Revolución",
+    content:
+      "Antiguo Palacio Presidencial, fue construido entre 1909 y 1920 para ser la sede del gobierno provincial de La Habana, pero el presidente Mario García Menocal lo escogió para ser la sede del Ejecutivo. En 1974 se convirtió en el Museo de la Revolución y en 2010 fue declarado Monumento Nacional.",
+  },
+  {
+    imageLink:
+      "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.5dMW9vfrByc9nYKu7fxRCwHaFj%26pid%3DApi&f=1",
+    title: "Museo de la Revolución",
+    content:
+      "Antiguo Palacio Presidencial, fue construido entre 1909 y 1920 para ser la sede del gobierno provincial de La Habana, pero el presidente Mario García Menocal lo escogió para ser la sede del Ejecutivo. En 1974 se convirtió en el Museo de la Revolución y en 2010 fue declarado Monumento Nacional.",
+  },
+  {
+    imageLink:
+      "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.5dMW9vfrByc9nYKu7fxRCwHaFj%26pid%3DApi&f=1",
+    title: "Museo de la Revolución",
+    content:
+      "Antiguo Palacio Presidencial, fue construido entre 1909 y 1920 para ser la sede del gobierno provincial de La Habana, pero el presidente Mario García Menocal lo escogió para ser la sede del Ejecutivo. En 1974 se convirtió en el Museo de la Revolución y en 2010 fue declarado Monumento Nacional.",
+  },
+];
+
+const tourList = [
+  {
+    title: "Autos Clásicos en La Habana",
+    author: "Autos Clásicos en La Habana",
+    avatarLink: "https://i.imgur.com/OW6zzOk.png",
+    imageLink:
+      "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.G60M2H9xAij84Efc-Mte-QHaFI%26pid%3DApi&f=1",
+    content:
+      "La Habana en un auto clásico. Recomiendo que lleves agua y algún tentempié para que disfrutes de esta experiencia a todo gas.",
+    price: 80,
+  },
+  {
+    title: "Autos Clásicos en La Habana",
+    author: "Autos Clásicos en La Habana",
+    avatarLink: "https://i.imgur.com/OW6zzOk.png",
+    imageLink:
+      "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.G60M2H9xAij84Efc-Mte-QHaFI%26pid%3DApi&f=1",
+    content:
+      "La Habana en un auto clásico. Recomiendo que lleves agua y algún tentempié para que disfrutes de esta experiencia a todo gas.",
+    price: 80,
+  },
+  {
+    title: "Autos Clásicos en La Habana",
+    author: "Autos Clásicos en La Habana",
+    avatarLink: "https://i.imgur.com/OW6zzOk.png",
+    imageLink:
+      "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.G60M2H9xAij84Efc-Mte-QHaFI%26pid%3DApi&f=1",
+    content:
+      "La Habana en un auto clásico. Recomiendo que lleves agua y algún tentempié para que disfrutes de esta experiencia a todo gas.",
+    price: 80,
+  },
+];
+
 export default {
   // name: 'PageName',
+  components: {
+    Sitio,
+    Tour,
+  },
+  setup(props) {
+    const text = ref();
+    return {
+      sitiosList,
+      text,
+      tourList,
+    };
+  },
 };
 </script>

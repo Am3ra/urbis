@@ -53,8 +53,8 @@
 <script>
 const postList = [
   "https://i.imgur.com/FwlVFXd.png",
-  "https://i.imgur.com/FwlVFXd.png",
-  "https://i.imgur.com/FwlVFXd.png",
+  "https://i.imgur.com/v7E164c.png",
+  "https://i.imgur.com/pWpbM4Y.jpg",
 ];
 
 export default {

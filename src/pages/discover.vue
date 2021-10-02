@@ -25,22 +25,22 @@
       <q-icon color="blue" size="50px" name="o_notifications" />
     </q-toolbar>
   </q-header>
-  <q-page padding>
-    <p class="text-h4 q-mb-lg q-mt-lg">Sitios Sugeridos</p>
-    <q-scroll-area class="" style="width: 100vw; height: 300px">
-      <div class="row q-gutter-lg no-wrap">
+  <q-page>
+    <p class="q-pl-md text-h4 q-mb-lg q-mt-lg">Sitios Sugeridos</p>
+    <q-scroll-area class="" style="width: 100%; height: 300px">
+      <div class="row q-px-md q-gutter-lg no-wrap">
         <sitio v-for="(sitio, idx) in sitiosList" :key="idx" v-bind="sitio" />
       </div>
     </q-scroll-area>
-    <p class="text-h4 q-my-lg">Tours</p>
-    <q-scroll-area class="" style="width: 100vw; height: 200px">
-      <div class="row q-gutter-lg no-wrap">
+    <p class="q-pl-md text-h4 q-my-lg">Tours</p>
+    <q-scroll-area class="" style="width: 90vw; height: 200px">
+      <div class="q-px-md row q-gutter-lg no-wrap">
         <tour v-for="(tour, idx) in tourList" :key="idx" v-bind="tour" />
       </div>
     </q-scroll-area>
-    <p class="text-h4 q-my-lg">Quest</p>
-    <q-scroll-area class="" style="width: 100vw; height: 205px">
-      <div class="row q-gutter-lg no-wrap">
+    <p class="q-pl-md text-h4 q-my-lg">Quest</p>
+    <q-scroll-area class="q-mb-lg" style="width: 100%; height: 205px">
+      <div class="q-px-md row q-gutter-xl no-wrap">
         <quest v-for="(quest, idx) in questList" :key="idx" v-bind="quest" />
       </div>
     </q-scroll-area>
@@ -50,8 +50,8 @@
 <script>
 import { ref } from "vue";
 import Sitio from "../components/sitio.vue";
-import Tour from "src/components/tour.vue";
-import Quest from "src/components/quest.vue";
+import Tour from "../components/tour.vue";
+import Quest from "../components/quest.vue";
 
 const sitiosList = [
   {
@@ -95,35 +95,22 @@ const tourList = [
       "La Habana en un auto clásico. Recomiendo que lleves agua y algún tentempié para que disfrutes de esta experiencia a todo gas.",
     price: 80,
   },
-  {
-    title: "Autos Clásicos en La Habana",
-    author: "Autos Clásicos en La Habana",
-    avatarLink: "https://i.imgur.com/OW6zzOk.png",
-    imageLink:
-      "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.G60M2H9xAij84Efc-Mte-QHaFI%26pid%3DApi&f=1",
-    content:
-      "La Habana en un auto clásico. Recomiendo que lleves agua y algún tentempié para que disfrutes de esta experiencia a todo gas.",
-    price: 80,
-  },
-  {
-    title: "Autos Clásicos en La Habana",
-    author: "Autos Clásicos en La Habana",
-    avatarLink: "https://i.imgur.com/OW6zzOk.png",
-    imageLink:
-      "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.G60M2H9xAij84Efc-Mte-QHaFI%26pid%3DApi&f=1",
-    content:
-      "La Habana en un auto clásico. Recomiendo que lleves agua y algún tentempié para que disfrutes de esta experiencia a todo gas.",
-    price: 80,
-  },
 ];
 
-const questList = [];
+const questList = [
+  {
+    title: "Explora la parte tradicional de La Habana",
+    imageLink:
+      "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.5R3uyetDo-bLNVwhdjb4pQHaE8%26pid%3DApi&f=1",
+  },
+];
 
 export default {
   // name: 'PageName',
   components: {
     Sitio,
     Tour,
+    Quest,
   },
 
   setup(props) {

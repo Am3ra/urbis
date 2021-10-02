@@ -1,6 +1,6 @@
 <template>
   <q-img
-    class="img q-mr-lg"
+    class="img q-pl-lg"
     :src="imageLink"
     :ratio="1"
     spinner-color="primary"
@@ -27,7 +27,7 @@ export default {
 
 <style scoped>
 .img {
-  width: 40vw;
+  width: 50vw;
   border-radius: 30px;
   /* height: 200px; */
   height: 200px;

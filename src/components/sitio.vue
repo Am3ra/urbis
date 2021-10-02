@@ -1,6 +1,6 @@
 <template>
   <q-img
-    class="img q-mr-lg"
+    class="img q-ml-lg"
     :src="imageLink"
     :ratio="9 / 16"
     spinner-color="primary"

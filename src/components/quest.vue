@@ -1,6 +1,6 @@
 <template>
   <q-img
-    class="img q-mr-lg"
+    class="img q-pl-lg"
     :src="imageLink"
     :ratio="1"
     spinner-color="primary"
@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  // name: 'ComponentName',
+  name: "quest",
   props: {
     imageLink: String,
     title: String,

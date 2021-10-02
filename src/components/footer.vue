@@ -1,5 +1,5 @@
 <template>
-  <q-footer>
+  <q-footer class="">
     <!-- <q-tabs switch-indicator>
         <q-route-tab icon="map" to="/your/route" replace label="One Tab" />
         <q-route-tab
@@ -10,7 +10,7 @@
         />
       </q-tabs> -->
 
-    <q-toolbar class="bg-grey-3">
+    <q-toolbar class="bg-grey-3 q-pt-md justify-center">
       <q-btn
         stack
         flat

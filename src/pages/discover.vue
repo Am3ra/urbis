@@ -33,12 +33,17 @@
       </div>
     </q-scroll-area>
     <p class="text-h4 q-my-lg">Tours</p>
-    <q-scroll-area class="" style="width: 100vw; height: 300px">
+    <q-scroll-area class="" style="width: 100vw; height: 200px">
       <div class="row q-gutter-lg no-wrap">
         <tour v-for="(tour, idx) in tourList" :key="idx" v-bind="tour" />
       </div>
     </q-scroll-area>
-    <p class="text-h4 q-mb-lg">Quest</p>
+    <p class="text-h4 q-my-lg">Quest</p>
+    <q-scroll-area class="" style="width: 100vw; height: 205px">
+      <div class="row q-gutter-lg no-wrap">
+        <quest v-for="(quest, idx) in questList" :key="idx" v-bind="quest" />
+      </div>
+    </q-scroll-area>
   </q-page>
 </template>
 
@@ -46,6 +51,7 @@
 import { ref } from "vue";
 import Sitio from "../components/sitio.vue";
 import Tour from "src/components/tour.vue";
+import Quest from "src/components/quest.vue";
 
 const sitiosList = [
   {
@@ -111,18 +117,22 @@ const tourList = [
   },
 ];
 
+const questList = [];
+
 export default {
   // name: 'PageName',
   components: {
     Sitio,
     Tour,
   },
+
   setup(props) {
     const text = ref();
     return {
       sitiosList,
       text,
       tourList,
+      questList,
     };
   },
 };

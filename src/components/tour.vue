@@ -2,7 +2,7 @@
   <q-img
     class="img q-mr-lg"
     :src="imageLink"
-    :ratio="9 / 16"
+    :ratio="1"
     spinner-color="primary"
     spinner-size="82px"
   >
@@ -30,8 +30,7 @@ export default {
   width: 40vw;
   border-radius: 30px;
   /* height: 200px; */
-  min-height: 100px;
-  max-height: 30vh;
+  height: 200px;
 }
 
 .caption {

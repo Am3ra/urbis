@@ -1,0 +1,7 @@
+{
+  "appId": "org.urbis.tourism",
+  "appName": "Urbis App",
+  "bundledWebRuntime": false,
+  "npmClient": "yarn",
+  "webDir": "www"
+}

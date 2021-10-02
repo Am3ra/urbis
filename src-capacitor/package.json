@@ -1,0 +1,12 @@
+{
+  "name": "urbis",
+  "version": "0.0.1",
+  "description": "A tourism app",
+  "author": "am3ra <jp2kk2@gmail.com>",
+  "private": true,
+  "dependencies": {
+    "@capacitor/cli": "^2.0.0",
+    "@capacitor/core": "^2.0.0",
+    "@capacitor/ios": "2.5.0"
+  }
+}

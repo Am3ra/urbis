@@ -29,7 +29,9 @@
       <q-card-section>
         <div class="text-h6 text-blue">Historia de Viajero</div>
       </q-card-section>
-      <img src="https://cdn.quasar.dev/img/mountains.jpg" />
+      <img
+        src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F534244-1711355-raikfcquaxqncofqfm.stackpathdns.com%2Fwp-content%2Fuploads%2F2020%2F09%2FGoogle-Maps-with-Pins.jpg&f=1&nofb=1"
+      />
     </q-card>
     <q-card class="profile-card q-my-lg">
       <q-card-section>

@@ -39,7 +39,7 @@
       </div>
     </q-scroll-area>
     <p class="q-pl-md text-h4 q-my-lg">Quest</p>
-    <q-scroll-area class="q-mb-lg" style="width: 100%; height: 205px">
+    <q-scroll-area class="q-mb-lg" style="width: 100%; height: 200px">
       <div class="q-px-md row q-gutter-xl no-wrap">
         <quest v-for="(quest, idx) in questList" :key="idx" v-bind="quest" />
       </div>
@@ -98,6 +98,11 @@ const tourList = [
 ];
 
 const questList = [
+  {
+    title: "Explora la parte tradicional de La Habana",
+    imageLink:
+      "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.5R3uyetDo-bLNVwhdjb4pQHaE8%26pid%3DApi&f=1",
+  },
   {
     title: "Explora la parte tradicional de La Habana",
     imageLink:

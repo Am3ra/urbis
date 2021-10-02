@@ -1,16 +1,31 @@
 <template>
   <!-- notice dialogRef here -->
   <q-dialog ref="dialogRef" @hide="onDialogHide">
-    <q-card class="q-dialog-plugin">
+    <q-card class="card q-dialog-plugin">
       <!--
         ...content
         ... use q-card-section for it?
       -->
-
+      <q-card-section>
+        <div class="text-weight-bolder text-blue text-h5">Tour</div>
+        <div class="text-h5 q-mb-md q-mt-sm">{{ title }}</div>
+        <div class="text-body1">{{ content }}</div>
+        <q-img
+          class="q-my-md"
+          :src="imageLink"
+          :ratio="16 / 9"
+          spinner-color="primary"
+          spinner-size="82px"
+        />
+      </q-card-section>
       <!-- buttons example -->
-      <q-card-actions align="right">
-        <q-btn color="primary" label="OK" @click="onOKClick" />
-        <q-btn color="primary" label="Cancel" @click="onCancelClick" />
+      <q-card-actions align="center">
+        <q-btn
+          class="q-mb-md"
+          color="primary"
+          label="regresar"
+          @click="onCancelClick"
+        />
       </q-card-actions>
     </q-card>
   </q-dialog>
@@ -21,7 +36,9 @@ import { useDialogPluginComponent } from "quasar";
 
 export default {
   props: {
-    // ...your custom props
+    title: String,
+    content: String,
+    imageLink: String,
   },
 
   emits: [
@@ -30,7 +47,7 @@ export default {
     ...useDialogPluginComponent.emits,
   ],
 
-  setup() {
+  setup(props) {
     // REQUIRED; must be called inside of setup()
     const { dialogRef, onDialogHide, onDialogOK, onDialogCancel } =
       useDialogPluginComponent();
@@ -60,7 +77,14 @@ export default {
 
       // we can passthrough onDialogCancel directly
       onCancelClick: onDialogCancel,
+      ...props,
     };
   },
 };
 </script>
+
+<style scoped>
+.card {
+  border-radius: 25px;
+}
+</style>

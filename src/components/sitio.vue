@@ -22,6 +22,7 @@ export default {
   props: {
     imageLink: String,
     title: String,
+    content: String,
   },
   setup(props) {
     const $q = useQuasar();
@@ -32,7 +33,7 @@ export default {
 
         // props forwarded to your custom component
         componentProps: {
-          text: "something",
+          ...props,
           // ...more..props...
         },
       })

@@ -13,14 +13,41 @@
 </template>
 
 <script>
+import tourDialogVue from "./tourDialog.vue";
+
 export default {
   // name: 'ComponentName',
   props: {
-    imageLink: String,
     title: String,
+    author: String,
+    avatarLink: String,
+    imageLink: String,
+    content: String,
+    price: number,
   },
   setup(props) {
-    return { ...props };
+    function showD() {
+      $q.dialog({
+        component: tourDialogVue,
+
+        // props forwarded to your custom component
+        componentProps: {
+          ...props,
+          // ...more..props...
+        },
+      })
+        .onOk(() => {
+          console.log("OK");
+        })
+        .onCancel(() => {
+          console.log("Cancel");
+        })
+        .onDismiss(() => {
+          console.log("Called on OK or Cancel");
+        });
+    }
+
+    return { showD, ...props };
   },
 };
 </script>

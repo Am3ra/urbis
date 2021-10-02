@@ -36,11 +36,12 @@
         <q-btn color="primary" label="OK" @click="onOKClick" />
         <q-btn color="primary" label="Cancel" @click="onCancelClick" />
       </q-card-actions> -->
-      <q-card-section>
+      <q-card-section class="bg-grey-3">
         <comment
           v-for="(comment, index) in post.comments"
           :key="index"
           v-bind="comment"
+          class="q-mb-md"
         />
       </q-card-section>
     </q-card>

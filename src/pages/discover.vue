@@ -1,7 +1,7 @@
 <template>
   <q-header class="text-black" elevated>
     <q-toolbar>
-      <div class="column q-mb-md">
+      <div class="column q-mb-md q-mt-xl">
         <p>Cerca de ti.</p>
         <div class="row text-body1">
           <q-icon color="blue" size="20px" name="o_location_on" />

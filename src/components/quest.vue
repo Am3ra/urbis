@@ -5,6 +5,7 @@
     :ratio="1"
     spinner-color="primary"
     spinner-size="82px"
+    @click="showD"
   >
     <div class="absolute-full caption text-h6 flex flex-center">
       {{ title }}
@@ -13,14 +14,42 @@
 </template>
 
 <script>
+import { useQuasar } from "quasar";
+import questDialog from "./questDialog.vue";
+
 export default {
   name: "quest",
   props: {
     imageLink: String,
     title: String,
+    steps: [Object],
   },
   setup(props) {
-    return { ...props };
+    const $q = useQuasar();
+
+    function showD() {
+      $q.dialog({
+        component: questDialog,
+
+        // props forwarded to your custom component
+        componentProps: {
+          ...props,
+          // ...more..props...
+        },
+      })
+        .onOk(() => {
+          console.log("OK");
+        })
+        .onCancel(() => {
+          console.log("Cancel");
+          $q.notify("Iniciado!");
+        })
+        .onDismiss(() => {
+          console.log("Called on OK or Cancel");
+        });
+    }
+
+    return { showD, ...props };
   },
 };
 </script>

@@ -1,16 +1,55 @@
 <template>
   <!-- notice dialogRef here -->
   <q-dialog ref="dialogRef" @hide="onDialogHide">
-    <q-card class="q-dialog-plugin">
+    <q-card class="card q-dialog-plugin">
       <!--
         ...content
         ... use q-card-section for it?
       -->
+      <q-card-section>
+        <div class="text-weight-bolder text-blue text-h5">Quest</div>
+        <div class="text-h5 text-weight-bold q-mb-md q-mt-sm">
+          Iniciar Quest
+        </div>
 
+        <div class="text-body1">
+          Te recomendamos las siguientes actividades.
+        </div>
+        <q-list>
+          <!--
+        Rendering a <label> tag (notice tag="label")
+        so QRadios will respond to clicks on QItems to
+        change Toggle state.
+      -->
+
+          <q-item tag="label" v-ripple>
+            <q-item-section avatar> </q-item-section>
+            <q-item-section>
+              <q-item-label>Teal</q-item-label>
+            </q-item-section>
+          </q-item>
+
+          <q-item tag="label" v-ripple>
+            <q-item-section avatar> </q-item-section>
+            <q-item-section>
+              <q-item-label>Orange</q-item-label>
+              <q-item-label caption>With description </q-item-label>
+            </q-item-section>
+          </q-item>
+        </q-list>
+      </q-card-section>
       <!-- buttons example -->
-      <q-card-actions align="right">
-        <q-btn color="primary" label="OK" @click="onOKClick" />
-        <q-btn color="primary" label="Cancel" @click="onCancelClick" />
+      <q-card-actions align="center">
+        <a href="https://e67c-2806-104e-9-94e3-59b6-2def-5fbe-377a.ngrok.io/">
+          <q-btn
+            class="q-mb-md text-weight-bolder"
+            color="blue"
+            label="Iniciar"
+            no-caps
+            @click="onCancelClick"
+          >
+          </q-btn
+        ></a>
       </q-card-actions>
     </q-card>
   </q-dialog>
@@ -18,10 +57,13 @@
 
 <script>
 import { useDialogPluginComponent } from "quasar";
+import { ref } from "vue";
 
 export default {
   props: {
-    // ...your custom props
+    imageLink: String,
+    title: String,
+    steps: [Object],
   },
 
   emits: [
@@ -30,7 +72,7 @@ export default {
     ...useDialogPluginComponent.emits,
   ],
 
-  setup() {
+  setup(props) {
     // REQUIRED; must be called inside of setup()
     const { dialogRef, onDialogHide, onDialogOK, onDialogCancel } =
       useDialogPluginComponent();
@@ -40,7 +82,6 @@ export default {
     //                    example: onDialogOK() - no payload
     //                    example: onDialogOK({ /*.../* }) - with payload
     // onDialogCancel - Function to call to settle dialog with "cancel" outcome
-
     return {
       // This is REQUIRED;
       // Need to inject these (from useDialogPluginComponent() call)
@@ -60,7 +101,14 @@ export default {
 
       // we can passthrough onDialogCancel directly
       onCancelClick: onDialogCancel,
+      ...props,
     };
   },
 };
 </script>
+
+<style scoped>
+.card {
+  border-radius: 25px;
+}
+</style>

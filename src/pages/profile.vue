@@ -35,16 +35,35 @@
       <q-card-section>
         <div class="text-h6 text-blue">Publicaciones</div>
       </q-card-section>
-      <q-card-section>
-        <q-img src="" :ratio="1" spinner-color="primary" spinner-size="82px" />
+      <q-card-section class="row justify-evenly q-gutter-sm">
+        <q-img
+          v-for="(image, idx) in postList"
+          :src="image"
+          :key="idx"
+          :ratio="1"
+          spinner-color="primary"
+          spinner-size="82px"
+          class="col-3"
+        />
       </q-card-section>
     </q-card>
   </q-page>
 </template>
 
 <script>
+const postList = [
+  "https://i.imgur.com/FwlVFXd.png",
+  "https://i.imgur.com/FwlVFXd.png",
+  "https://i.imgur.com/FwlVFXd.png",
+];
+
 export default {
   // name: 'PageName',
+  setup(props) {
+    return {
+      postList,
+    };
+  },
 };
 </script>
 

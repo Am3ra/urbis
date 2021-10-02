@@ -5,6 +5,7 @@
     :ratio="9 / 16"
     spinner-color="primary"
     spinner-size="82px"
+    @click="showD"
   >
     <div class="absolute-full caption text-h6 flex flex-center">
       {{ title }}
@@ -13,6 +14,9 @@
 </template>
 
 <script>
+import sitioDialog from "./sitioDialog.vue";
+import { useQuasar } from "quasar";
+
 export default {
   // name: 'ComponentName',
   props: {
@@ -20,7 +24,30 @@ export default {
     title: String,
   },
   setup(props) {
-    return { ...props };
+    const $q = useQuasar();
+
+    function showD() {
+      $q.dialog({
+        component: sitioDialog,
+
+        // props forwarded to your custom component
+        componentProps: {
+          text: "something",
+          // ...more..props...
+        },
+      })
+        .onOk(() => {
+          console.log("OK");
+        })
+        .onCancel(() => {
+          console.log("Cancel");
+        })
+        .onDismiss(() => {
+          console.log("Called on OK or Cancel");
+        });
+    }
+
+    return { showD, ...props };
   },
 };
 </script>
